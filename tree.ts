@@ -2,7 +2,26 @@
 
 
 export function makeTree(chars: string, size: number): string {
-    return '';
+    let result = `\n`;
+    for (let row = 1; row <= size; row++) {
+
+        let rowSpaces = ' '.repeat(calcSpacesLength(row, size));
+        let rowChars = chars.repeat(calcCharsLength(row));
+
+        result += rowSpaces;
+        result += rowChars;
+        result += '\n';
+
+
+    }
+    const trunkLength = calcTrunkLength(size);
+    for (let trunkRow = 1; trunkRow <= trunkLength; trunkRow++) {
+
+        let trunkSpaces = ' '.repeat(size -1 );
+        result += trunkSpaces + '|\n';
+
+    }
+    return result;
 
 }
 
@@ -13,6 +32,9 @@ export function calcTrunkLength(size:number):number {
     return resultAlwaysGreaterThanOne;
 }
 
-export function calcSpaces(line:number, size:number):number {
-    return 0;
+export function calcSpacesLength(row:number, size:number):number {
+    return size - row;
+}
+export function calcCharsLength(row:number):number {
+    return ( row  * 2 ) - 1;
 }

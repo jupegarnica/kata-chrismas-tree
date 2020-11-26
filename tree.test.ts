@@ -1,4 +1,4 @@
-import { makeTree, calcTrunkLength, calcSpaces } from './tree';
+import { makeTree, calcTrunkLength, calcCharsLength } from './tree';
 
 describe('Kata christmas tree', () => {
   test('should work for size 2 and 1 char', () => {
@@ -22,15 +22,16 @@ describe('Kata christmas tree', () => {
     // arrange
     const expectedResult =
 `
-    *
-   ***
-  *****
- *******
-*********
-    |
-    |
+     *
+    ***
+   *****
+  *******
+ *********
+***********
+     |
+     |
 `
-
+// 1 3 5 7 9
 // " * \n***\n | "
 
     // action
@@ -41,7 +42,7 @@ describe('Kata christmas tree', () => {
   });
 
 
-  test.only('should calc trunk length correctly', ()=> {
+  test('should calc trunk length correctly', ()=> {
 
         expect(calcTrunkLength(2)).toBe(1);
         expect(calcTrunkLength(3)).toBe(1);
@@ -52,4 +53,11 @@ describe('Kata christmas tree', () => {
 
 
   })
+  test('calcCharsLength should work', () => {
+    expect(calcCharsLength(1)).toBe(1);
+    expect(calcCharsLength(2)).toBe(3);
+    expect(calcCharsLength(3)).toBe(5);
+
+  })
+
 });
