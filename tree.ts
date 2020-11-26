@@ -7,8 +7,10 @@ export function makeTree(chars: string, size: number): string {
 }
 
 export function calcTrunkLength(size:number):number {
-    const res = Math.floor(size / 3)
-    return res < 1 ? 1 : res;
+    const division = Math.floor(size / 3);
+    const resultAlwaysGreaterThanOne = division < 1 ? 1 : division;
+
+    return resultAlwaysGreaterThanOne;
 }
 
 export function calcSpaces(line:number, size:number):number {
