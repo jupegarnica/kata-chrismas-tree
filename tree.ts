@@ -6,7 +6,7 @@ export function makeTree(chars: string, size: number): string {
     for (let row = 1; row <= size; row++) {
 
         let rowSpaces = ' '.repeat(calcSpacesLength(row, size));
-        let rowChars = chars.repeat(calcCharsLength(row));
+        let rowChars = createChars(chars, calcCharsLength(row))
 
         result += rowSpaces;
         result += rowChars;
@@ -37,4 +37,12 @@ export function calcSpacesLength(row:number, size:number):number {
 }
 export function calcCharsLength(row:number):number {
     return ( row  * 2 ) - 1;
+}
+
+export function createChars(chars:string,length:number): string {
+    let result = '';
+    for (let index = 0; index < length; index++) {
+        result += chars[index % chars.length]
+    }
+    return result;
 }
